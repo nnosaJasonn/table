@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Row =({data})=> {
+const Row =({data, columnOrder})=> {
 
     
 
     if(data) {
-        console.log(data)
-        const renderedData = Object.keys(data).map(function(key, index) {
+
+        const renderedData = columnOrder.map(function(key, index) {
             return <td>{data[key]}</td>
           });
 

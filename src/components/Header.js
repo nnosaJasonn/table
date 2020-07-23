@@ -20,7 +20,7 @@ const Header = ({sortBy, direction, color, columns, sort}) => {
     }
 
     return (
-        <thead style={{background: color || 'black'}}>
+        <thead style={{background: color || 'black', borderRadius: '5px'}}>
             <tr>
                 {cols} 
             </tr>
