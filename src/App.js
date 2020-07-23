@@ -5,31 +5,31 @@ const columns = [
         label: 'Id',
         name: 'Id',
         type: 'id',
-        sortable: 'false',
+        sortable: false,
     },
     {
         label: 'External Id',
         name: 'External_Id',
         type: 'id',
-        sortable: 'false',
+        sortable: false,
     },
     {
         label: 'Name',
         name: 'Name',
         type: 'text',
-        sortable: 'text',
+        sortable: true,
     },
     {
         label: 'Date Created',
         name: 'Date_Created',
         type: 'date',
-        sortable: 'date'
+        sortable: true
     },
     {
         label: 'Status',
         name: 'Status',
         type: 'boolean',
-        sortable: 'boolean'
+        sortable: true
     }
 ];
 

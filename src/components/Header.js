@@ -5,7 +5,7 @@ const Header = ({sortBy, direction, color, columns, sort}) => {
 
 
     const handleSort =(name, type, sortable)=> {
-        if( sortable !== 'false') {
+        if( sortable) {
             sort(name, type)
         }
 
