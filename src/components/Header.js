@@ -1,18 +1,21 @@
 import React, {useState} from 'react';
 import Column from './Column';
 
-const Header = ({color, columns}) => {
+const Header = ({sortBy, direction, color, columns, sort}) => {
 
 
-    const handleSort =(label, type)=> {
-        console.log('label -> ' + label, 'type -> ' + type);
+    const handleSort =(name, type, sortable)=> {
+        if( sortable !== 'false') {
+            sort(name, type)
+        }
+
     }
 
     let cols = [];
-    
+
     if(columns) {
         cols = columns.map((column) => {
-            return (<Column handleSort={handleSort} label={column.label} type={column.type} sortable={column.sortable}/>)
+            return (<Column sortBy={sortBy} direction={direction} handleSort={handleSort} name={column.name} label={column.label} type={column.type} sortable={column.sortable}/>)
         })
     }
 

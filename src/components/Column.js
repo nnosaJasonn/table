@@ -1,10 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './Column.css'
-const Column =({label, type, sortable, handleSort})=> {
+const Column =({sortBy, direction, name, label, type, sortable, handleSort})=> {
 
-    const clickable = sortable ? 'sortable' : false;
-   
-    return <td onClick={() => handleSort(label, type)} className={clickable}>
+    const clickable = sortable !== 'false' ? 'sortable' : false;
+    
+    if(sortBy === name) {
+        return (
+            <td onClick={() => handleSort(name, type, sortable)} className={clickable}>
+        {label} {direction ? '↑': '↓'}
+    </td>
+        )
+    }
+
+    return <td onClick={() => handleSort(name, type, sortable)} className={clickable}>
         {label}
     </td>
 

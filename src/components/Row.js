@@ -2,15 +2,23 @@ import React from 'react';
 
 const Row =({data})=> {
 
-    const renderedData = data.map((d) => {
-        return (
-            <td></td>
-            )
-    })
+    
 
-    return (
-        <tr>
-            
-        </tr>
-    )
+    if(data) {
+        console.log(data)
+        const renderedData = Object.keys(data).map(function(key, index) {
+            return <td>{data[key]}</td>
+          });
+
+        return (
+            <tr>
+                {renderedData}
+            </tr>
+        )
+    }
+
+    return <tr>Loading...</tr>
+   
 }
+
+export default Row;
