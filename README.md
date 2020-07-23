@@ -2,6 +2,10 @@
 
 <p>To use, add defined columns, rows, sortby, and sort type as properties to the table component.</p>
 
+e.g.
+```
+<Table sortBy={sortBy} sortType={sortType} rows={rows} columns={columns}/>
+```
 
 <h3>columns</h3>
 <p>Column objects must have these attributes: </p>
@@ -23,7 +27,7 @@ supported sort methods:
 
 
 example columns:
-
+```
 const columns = [
     {
         label: 'Id',
@@ -56,11 +60,13 @@ const columns = [
         sortable: 'boolean'
     }
 ];
+```
 
 <h3>rows</h3>
 <p>Define rows as an array of row objects. The table automatically lines row attributes up with columns, but any attributes that are not also in the columns will not appear in the table</p>
 
 e.g.
+```
 const rows = [
     {
         Id: '123',
@@ -119,17 +125,21 @@ const rows = [
         Status: 'Closed'
     }
 ]
-
+```
 
 <h3>sort by</h3>
 
 <p>This is to set the default column to sort by. It should match the name attribute for one of the columns</p>
 
 e.g:
-
+```
 const sortBy = 'Date_Created';
-
+```
 <h3>Sort Type</h3>
 
 <p>This is to set the default sort method. It should match the type attribute of the column chosen in "sort by"</p>
-    
+
+e.g.
+```
+const sortType = 'date';
+```
