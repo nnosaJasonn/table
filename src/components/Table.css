@@ -1,8 +1,8 @@
 .fixed_header{
-    width: 80%;
-    table-layout: fixed;
+    width: 100%;
+
     border-collapse: collapse;
-    margin: 20px;
+    margin: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     border-radius: 5px;
 }

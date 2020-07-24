@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './Table.css'
+// import './Table.css'
 import Header from './Header';
 import Row from './Row';
 
@@ -99,8 +99,8 @@ export default ({rows, columns, sortBy, sortType}) => {
         else {
             data = rows;
         }
-        return data.map((d) => {
-            return <Row columnOrder={columnOrder} data={d}/>
+        return data.map((d, i) => {
+            return <Row key={i} columnOrder={columnOrder} data={d}/>
         })
     }
 
@@ -109,9 +109,8 @@ export default ({rows, columns, sortBy, sortType}) => {
 
 
         return (
-            <div>
-                <Header color="green" />
-                <table className="fixed_header">
+            <div className="">
+                <table className="table w-auto">
                     <Header sortBy={sortState.sortBy} direction={sortState.sortDirection} sort={changeSort} columns={columns}/>
                     <tbody>
                         {sortedData}

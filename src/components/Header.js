@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Column from './Column';
 
 const Header = ({sortBy, direction, color, columns, sort}) => {
@@ -14,13 +14,13 @@ const Header = ({sortBy, direction, color, columns, sort}) => {
     let cols = [];
 
     if(columns) {
-        cols = columns.map((column) => {
-            return (<Column sortBy={sortBy} direction={direction} handleSort={handleSort} name={column.name} label={column.label} type={column.type} sortable={column.sortable}/>)
+        cols = columns.map((column, i) => {
+            return (<Column key={i} sortBy={sortBy} direction={direction} handleSort={handleSort} name={column.name} label={column.label} type={column.type} sortable={column.sortable}/>)
         })
     }
 
     return (
-        <thead style={{background: color || 'black', borderRadius: '5px'}}>
+        <thead className="thead-dark">
             <tr>
                 {cols} 
             </tr>

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Row.css'
 const Row =({data, columnOrder})=> {
 
     
@@ -7,7 +7,7 @@ const Row =({data, columnOrder})=> {
     if(data) {
 
         const renderedData = columnOrder.map(function(key, index) {
-            return <td>{data[key]}</td>
+            return <td key={index}><div className="scrollable">{data[key]}</div></td>
           });
 
         return (

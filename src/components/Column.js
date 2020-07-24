@@ -6,15 +6,15 @@ const Column =({sortBy, direction, name, label, type, sortable, handleSort})=> {
     
     if(sortBy === name) {
         return (
-            <td onClick={() => handleSort(name, type, sortable)} className={sortable ? 'sortable' : 'false'}>
+            <th onClick={() => handleSort(name, type, sortable)} className={sortable ? 'sortable' : 'false'}>
         {label} {direction ? '↑': '↓'}
-    </td>
+    </th>
         )
     }
 
-    return <td onClick={() => handleSort(name, type, sortable)} className={sortable ? 'sortable' : 'false'}>
+    return <th onClick={() => handleSort(name, type, sortable)} className={sortable ? 'sortable' : 'false'}>
         {label}
-    </td>
+    </th>
 
 }
 
