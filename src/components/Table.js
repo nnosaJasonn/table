@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-// import './Table.css'
 import Header from './Header';
 import Row from './Row';
 
@@ -63,6 +62,20 @@ export default ({rows, columns, sortBy, sortType}) => {
         })
     }
 
+    const sortByNumber = (rows, direction, field) => {
+        let lower = direction === true ? -1 : 1;
+        let higher = direction === true ? 1 : -1;
+        return rows.sort((a,b) => {
+            if(parseInt(a[field]) < parseInt(b[field])) {
+                return lower;
+            }
+            if(parseInt(a[field]) > parseInt(b[field])) {
+                return higher;
+            }
+            return 0;
+        })
+    }
+
     const checkBool = (bool) => {
         return bool === 'Open';
     }
@@ -90,8 +103,11 @@ export default ({rows, columns, sortBy, sortType}) => {
         if (type === 'date') {
             data = sortByDate(rows, direction, sortBy)
         }
-        else if ( type === 'text' || type === 'number') {
+        else if ( type === 'text') {
             data = sortByStandard(rows, direction,sortBy);
+        }
+        else if (type === 'number') {
+            data = sortByNumber(rows, direction, sortBy);
         }
         else if (type === 'boolean') {
             data = sortByBool(rows, direction, sortBy);
@@ -110,7 +126,7 @@ export default ({rows, columns, sortBy, sortType}) => {
 
         return (
             <div className="">
-                <table className="table w-auto">
+                <table  className="table table-responsive">
                     <Header sortBy={sortState.sortBy} direction={sortState.sortDirection} sort={changeSort} columns={columns}/>
                     <tbody>
                         {sortedData}

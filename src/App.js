@@ -4,10 +4,16 @@ import axios from 'axios';
 import './App.css'
 const columns = [
     {
+        label: 'Action',
+        name: 'action',
+        type: 'action',
+        sortable: false
+    },
+    {
         label: 'Id',
         name: 'Id',
-        type: 'id',
-        sortable: false,
+        type: 'number',
+        sortable: true,
     },
     {
         label: 'AutoStatus',
@@ -173,83 +179,20 @@ const columns = [
     }
 ];
 
-// const rows = [
-//     {
-//         Id: '123',
-//         External_Id: 'abc',
-//         Name: 'Bob',
-//         Date_Created: '07/21/2020',
-//         Status: 'Open',
-//         NPS_Score: 7,
-//     },
-//     {
-//         Id: '234',
-//         External_Id: 'def',
-//         Date_Created: '07/21/2020',
-//         NPS_Score: 10,
-//         Name: 'Janis',
-//         Status: 'Closed',
-//     },
-//     {
-//         Id: '345',
-//         External_Id: 'fgh',
-//         Name: 'Elijah',
-//         Date_Created: '07/20/2020',
-//         Status: 'Open',
-//         NPS_Score: 1,
-//     },
-//     {
-//         Id: '678',
-//         External_Id: 'hij',
-//         Name: 'zeke',
-//         Date_Created: '07/10/2020',
-//         Status: 'Closed',
-//         NPS_Score: 3,
-//     },
-//     {
-//         Id: '098',
-//         External_Id: 'zyx',
-//         Name: 'Karen',
-//         Date_Created: '06/21/2020',
-//         Status: 'Closed',
-//         NPS_Score: 6,
-//     },
-//     {
-//         External_Id: 'wvu',
-//         Date_Created: '07/13/2019',
-//         Id: '987',
-//         Status: 'Closed',
-//         Name: 'Moses',
-//         NPS_Score: 8,
-//     },
-//     {
-//         Id: '876',
-//         External_Id: 'kjl',
-//         Name: 'Byrd',
-//         Date_Created: '06/30/2020',
-//         Status: 'Open',
-//         NPS_Score: 2,
-//     },
-//     {
-//         Id: '765',
-//         External_Id: 'lji',
-//         Name: 'Buggy Bug',
-//         Date_Created: '07/07/2020',
-//         Status: 'Closed',
-//         NPS_Score: 3,
-//     }
-// ]
 
 export default () => {
     const [rows, setRows] = useState(null);
-    const sortBy = 'AutoCreatedTime';
-    const sortType = 'date';
+    const sortBy = 'Id';
+    const sortType = 'number';
 
     useEffect(() => {
         const  func = async () => {
 
             const res = await axios('http://localhost:8888/getRows');
-            console.log(res.data);
+            res.data.forEach(row => {
+                row['action'] = <button onClick={() => alert(row['Id'])} type="button" class="btn btn-light scrollable"><i class="material-icons">send</i></button>
+
+            })
             setRows(res.data);
         }
         func();
